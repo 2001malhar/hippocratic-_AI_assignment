@@ -212,12 +212,3 @@ rather than per call.
 
 ---
 
-## Cost per story
-
-| Outcome | LLM calls |
-|---|---|
-| Passes first judge | 3 (plan, write, judge) |
-| One revision | 5 |
-| Budget exhausted (2 revisions) | 7 |
-
-A typical passing run takes about 12 seconds.
