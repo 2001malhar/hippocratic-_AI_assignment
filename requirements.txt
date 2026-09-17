@@ -1,0 +1,19 @@
+# Bedtime Story Agent - direct dependencies
+# Python >= 3.10 required (Gradio 5 / LangGraph). Build the venv with `py -3.12`.
+
+# --- Orchestration -------------------------------------------------------
+langgraph>=0.2.60,<0.3
+langchain-core>=0.3.21,<0.4
+langchain-openai>=0.2.11,<0.4
+
+# --- API -----------------------------------------------------------------
+fastapi>=0.115,<0.121
+uvicorn[standard]>=0.30,<0.40
+
+# --- UI ------------------------------------------------------------------
+gradio>=5.0,<6.0
+
+# --- Config / validation -------------------------------------------------
+pydantic>=2.9,<3.0
+pydantic-settings>=2.5,<3.0
+python-dotenv>=1.0,<2.0

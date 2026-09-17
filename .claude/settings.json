@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; .\\\\.venv\\\\Scripts\\\\python.exe cli.py --request \"A tiny fox helps a lost bunny in a moonlit garden.\" --style cozy --debug 2>&1 | Select-String -NotMatch \"LangChainPendingDeprecation|from langgraph.checkpoint\")",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; .\\\\.venv\\\\Scripts\\\\python.exe main.py)",
+      "Bash(curl -s -o /dev/null http://127.0.0.1:8000/healthz)",
+      "Bash(curl -s http://127.0.0.1:8000/healthz)",
+      "Bash(curl -s http://127.0.0.1:8000/api/v1/styles)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8000/ui)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8000/docs)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} -> %{redirect_url}\\\\n\" http://127.0.0.1:8000/)",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8000/ui/)",
+      "Bash(curl -s -X POST http://127.0.0.1:8000/api/v1/stories -H \"Content-Type: application/json\" -d '{\"request\":\"A tiny fox helps a lost bunny in a moonlit garden.\",\"style\":\"cozy\"}' -o /tmp/story.json -w \"status=%{http_code} time=%{time_total}s\\\\n\")",
+      "Bash(python -c ' *)",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; $env:THRESHOLD_OVERALL=\"4.9\"; $env:THRESHOLD_EMOTIONAL_SAFETY=\"5\"; $env:THRESHOLD_BEDTIME_QUALITY=\"5\"; .\\\\.venv\\\\Scripts\\\\python.exe cli.py --request \"A little hedgehog who is scared of thunderstorms\" --style cozy --debug 2>&1 | Select-String -Pattern \"Judge pass|threshold|Refining|Published|Pass \\\\d|FINAL SCORE|Passed:|Revisions:|Stopped|Elapsed|overall=|  - \")",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; $env:THRESHOLD_OVERALL=\"4.9\"; $env:THRESHOLD_EMOTIONAL_SAFETY=\"5\"; $env:MAX_REVISIONS=\"3\"; .\\\\.venv\\\\Scripts\\\\python.exe -c \"from app.settings import get_settings; s=get_settings\\(\\); print\\('policy    ', s.evaluation_policy\\); print\\('max_revs  ', s.max_revisions\\); print\\('recursion ', s.recursion_limit\\)\")",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; .\\\\.venv\\\\Scripts\\\\python.exe cli.py --request \"A scary story where a little bear is chased through a dark forest by a growling wolf, gets badly hurt, and never finds his mother again.\" --style adventure --debug 2>&1 | Select-String -Pattern \"Judge pass \\\\d|threshold_detector|Refining|Published '|Pass \\\\d:|content flags|FINAL SCORE|Passed:|Calming|Revisions:|Stopped|emotional_safety|bedtime_quality\")",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; $env:THRESHOLD_OVERALL=\"5.0\"; $env:THRESHOLD_REQUEST_ADHERENCE=\"5\"; $env:THRESHOLD_AGE_APPROPRIATENESS=\"5\"; $env:THRESHOLD_EMOTIONAL_SAFETY=\"5\"; $env:THRESHOLD_BEDTIME_QUALITY=\"5\"; .\\\\.venv\\\\Scripts\\\\python.exe cli.py --request \"A grumpy badger learns to share his mushroom soup with the neighbours\" --style funny --debug 2>&1 | Select-String -Pattern \"Judge pass \\\\d|Below threshold|Threshold met|budget spent|Refining|Published '|Pass \\\\d:|FINAL SCORE|Passed:|Revisions:|Stopped|Elapsed|published\")",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; $env:PYTHONPATH=\".\"; .\\\\.venv\\\\Scripts\\\\python.exe \"C:\\\\Users\\\\parik\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-parik-Downloads-AI-Agent-Deployment-Engineer-Takehome--1---1--AI-Agent-Deployment-Engineer-Takehome\\\\16c6207a-4011-4cf2-b749-08516a19f9db\\\\scratchpad\\\\smoke_logic.py\" 2>&1 | Select-String -Pattern \"FAIL|ALL CHECKS|FAILURE|=== |title |runaway\")",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m pip install ruff --quiet)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m ruff check app main.py cli.py)",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; $env:PYTHONPATH=\".\"; .\\\\.venv\\\\Scripts\\\\python.exe \"C:\\\\Users\\\\parik\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-parik-Downloads-AI-Agent-Deployment-Engineer-Takehome--1---1--AI-Agent-Deployment-Engineer-Takehome\\\\16c6207a-4011-4cf2-b749-08516a19f9db\\\\scratchpad\\\\smoke_ui.py\" 2>&1 | Select-String -NotMatch \"LangChainPendingDeprecation|from langgraph.checkpoint\")",
+      "Bash(curl -s -X POST http://127.0.0.1:8000/api/v1/stories -H \"Content-Type: application/json\" -d '{\"request\":\"Two sisters plant a garden that grows starlight\",\"style\":\"magical\",\"max_revisions\":1}' -o .venv/final.json -w \"status=%{http_code} time=%{time_total}s\\\\n\")",
+      "Bash(./.venv/Scripts/python.exe -c ' *)",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; .\\\\.venv\\\\Scripts\\\\python.exe -m ruff check app main.py cli.py; if \\($?\\) { .\\\\.venv\\\\Scripts\\\\python.exe -c \"from app.settings import get_settings; from app.llm.client import get_llm, LLMRole; s=get_settings\\(\\); print\\('settings.llm_model :', s.llm_model\\); [print\\(f'{r.value:<12} -> model={get_llm\\(r\\).model_name}  temp={get_llm\\(r\\).temperature}'\\) for r in LLMRole]\" })",
+      "PowerShell($env:PYTHONWARNINGS=\"ignore\"; $env:PYTHONPATH=\".\"; .\\\\.venv\\\\Scripts\\\\python.exe -m ruff check app main.py cli.py; if \\($?\\) { .\\\\.venv\\\\Scripts\\\\python.exe \"C:\\\\Users\\\\parik\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-parik-Downloads-AI-Agent-Deployment-Engineer-Takehome--1---1--AI-Agent-Deployment-Engineer-Takehome\\\\16c6207a-4011-4cf2-b749-08516a19f9db\\\\scratchpad\\\\smoke_logic.py\" 2>&1 | Select-String -Pattern \"FAIL|ALL CHECKS|FAILURE\" })"
+    ]
+  }
+}
